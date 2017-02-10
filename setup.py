@@ -8,9 +8,9 @@ class CustomInstall(install):
 		subprocess.call(['setupAuto.sh'])
 
 setup (name='piforge',
-	version='1.3.3',
+	version='1.3.4',
 	description='iforge for rPi server component',
-	url='',
+	url='https://github.com/shawt/piforge',
 	author='Trevor Shaw',
 	author_email='shawt@genlrn.com',
 	license='MIT',
@@ -23,6 +23,8 @@ setup (name='piforge',
 	packages=['piforge'],
 	install_requires=[
 		'web.py',
+		'RPi.GPIO',
+		
 	],
 	zip_safe=False,
 	cmdclass={'install': CustomInstall})
