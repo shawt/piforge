@@ -7,6 +7,7 @@ import web
 import threading
 import json
 _shutdown=False
+_ver="135"
 urls = (
 	'/', 'index',
 	'/iForge', 'iforge',
@@ -66,7 +67,7 @@ class iforge:
 			exec (code,globals(),globals())
 			msg="code is now successfully running on your pi"
         except:
-			msg="An error of type: " + str(sys.exc_value) + "occured."
+			msg="An error of type: " + str(sys.exc_value) + " occured."
         reply={'message':msg}
         return json.dumps(reply)
 class ping:	
@@ -76,7 +77,7 @@ class ping:
         web.header('Content-Type', 'application/json')
         request=web.input()
         reply={'message':'Successfully reached a version of piForge',
-        'ver':'134'}
+        'ver':_ver}
         return json.dumps(reply)
 
 class kill:
