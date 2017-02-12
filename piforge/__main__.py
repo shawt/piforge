@@ -10,7 +10,8 @@ _shutdown=False
 urls = (
 	'/', 'index',
 	'/iForge', 'iforge',
-	'/kill', 'kill'
+	'/kill', 'kill',
+	'/ping', 'ping'
 )
 
 def main(args=None):
@@ -61,11 +62,23 @@ class iforge:
         request=web.input()
         code=request.code
         #line below is the problem. change second argument to globals once and then back to locals and it will work
-        exec (code,globals(),globals())
-        #exec (code,globals(),globals().update(locals()))
-        reply={'message':'now running your code on rPi'}
+        try:
+			exec (code,globals(),globals())
+			msg="code is now successfully running on your pi"
+        except:
+			msg="An error of type: " + str(sys.exc_value) + "occured."
+        reply={'message':msg}
         return json.dumps(reply)
-	
+class ping:	
+    def POST(self):
+        cleanup()
+        web.header('Access-Control-Allow-Origin', '*')
+        web.header('Content-Type', 'application/json')
+        request=web.input()
+        reply={'message':'Successfully reached a version of piForge',
+        'ver':'134'}
+        return json.dumps(reply)
+
 class kill:
     def GET(self): 
         import sys 
