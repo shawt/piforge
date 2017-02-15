@@ -18,7 +18,7 @@ sudo cat <<EOF >/etc/init.d/piforgeStart
 # Description: A simple script  which will start a program from boot and stop upon shut-down
 ### END INIT INFO
 # Put any commands you always want to run here.
-piforge
+sudo piforge
 EOF
 return
 }
@@ -42,7 +42,7 @@ if [ "$answer" = "y" ] ; then
 	buildFile
 	sudo chmod +x /etc/init.d/piforgeStart
 	sudo update-rc.d piforgeStart defaults
-	piforge
+	sudo piforge
 
 else
 	if [ -e /etc/init.d/piforgeStart ]; then
