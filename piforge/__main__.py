@@ -7,7 +7,7 @@ import web
 import threading
 import json
 _shutdown=False
-_ver="139"
+_ver="140"
 urls = (
 	'/', 'index',
 	'/iForge', 'iforge',
