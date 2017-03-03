@@ -9,7 +9,7 @@ class CustomInstall(install):
 
 setup (name='piforge',
     #you must also change the global ver variable in __main__.py
-	version='1.3.7',
+	version='1.3.9',
 	description='iforge for rPi server component',
 	url='https://github.com/shawt/piforge',
 	author='Trevor Shaw',
@@ -25,6 +25,7 @@ setup (name='piforge',
 	install_requires=[
 		'web.py',
 		'RPi.GPIO',
+		'picamera',
 		
 	],
 	zip_safe=False,
