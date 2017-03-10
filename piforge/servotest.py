@@ -2,7 +2,7 @@ import RPi.GPIO as GIPO
 import servo
 import time
 
-myServo=servo.pi_servo(18,0)
+myServo=servo.forgeHat_servo(0,0)
 
 while 1:
 	myServo.write(0)

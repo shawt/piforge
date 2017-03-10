@@ -23,6 +23,8 @@ EOF
 return
 }
 
+sudo apt-get install python-smbus
+sudo apt-get install i2c-tools
 
 echo "*******WARNING*****"
 echo "piforge is designed to be installed on Raspberry Pi devices"
@@ -53,3 +55,5 @@ else
 	echo "piforge will NOT load automatically"
 fi
 echo "launch piforge servery by typing: piforge"
+
+

@@ -1,6 +1,27 @@
 #!/usr/bin/python
 import RPi.GPIO as GPIO
+import Adafruit_PCA9685
 
+class forgeHat_servo:
+	def __init__(self,port,angle):
+		global pwm
+		self.port=port
+		pwm = Adafruit_PCA9685.PCA9685()
+		pwm.set_pwm_freq(60)
+		
+	def write(self,angle):
+		pwm.set_pwm(self.port, 0, self.angleToUnits(angle))
+		
+	def angleToUnits(self,angle):
+		OldMax=180
+		OldMin=0
+		NewMax=600
+		NewMin=150
+		OldRange = (OldMax - OldMin)  
+		NewRange = (NewMax - NewMin)  
+		units = int((((angle - OldMin) * NewRange) / OldRange) + NewMin)
+		return(units)
+		
 class pi_servo:
 	def __init__(self,pin,angle):
 		global p

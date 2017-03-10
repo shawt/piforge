@@ -9,7 +9,7 @@ class CustomInstall(install):
 
 setup (name='piforge',
     #you must also change the global ver variable in __main__.py
-	version='1.4.0',
+	version='1.4.2',
 	description='iforge for rPi server component',
 	url='https://github.com/shawt/piforge',
 	author='Trevor Shaw',
@@ -26,6 +26,8 @@ setup (name='piforge',
 		'web.py',
 		'RPi.GPIO',
 		'picamera',
+		'adafruit-pca9685',
+		'adafruit-ads1x15',
 		
 	],
 	zip_safe=False,
